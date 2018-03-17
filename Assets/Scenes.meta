@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Resources/Spaceship/Scenes.meta
+guid: 6d84b80d18f43384f8db89835ba30d14
+=======
 guid: 74649d55b5f294defb955e764c0cff11
+>>>>>>> dd969fa69641fa6dfe50dea5aeb5c414a569b621:Assets/Scenes.meta
 folderAsset: yes
 timeCreated: 1521315663
 licenseType: Free
