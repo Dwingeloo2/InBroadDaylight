@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
         Propel();
         Rotate();
         AffectHealth(regenRate);
+        UpdateHealthBar();
 	}
     
     
@@ -63,12 +64,17 @@ public class Player : MonoBehaviour {
                 Die();
             }
         }
-		healthBar.fillAmount = health / maxHealth;
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = health / maxHealth;
     }
 
 
     public void Die()
     {
+        health = -1;
         Debug.Log("Ye dead");
     }
 }
