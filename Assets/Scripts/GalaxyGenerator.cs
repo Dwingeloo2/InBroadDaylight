@@ -11,6 +11,8 @@ public class GalaxyGenerator : MonoBehaviour {
 	public float minPlanetRadius;
 	public float maxPlanetRadius;
 
+	public float orbitalPeriodConstant = 1.0f;
+
 	public int seed = 0x12345678;
 	System.Random rand;
 
@@ -24,6 +26,7 @@ public class GalaxyGenerator : MonoBehaviour {
 		for (int i = 0; i < numPlanets; ++i) {
 			float minD = (i + 0) * (maxDistance - minDistance) / numPlanets + minDistance;
 			float maxD = (i + 1) * (maxDistance - minDistance) / numPlanets + minDistance;
+
 			GeneratePlanet (sun.transform, minD, maxD, minPlanetRadius, maxPlanetRadius);
 		}
 	}
@@ -48,7 +51,7 @@ public class GalaxyGenerator : MonoBehaviour {
 		orbiter.center = center;
 		orbiter.ccw = rand.Next () % 2 == 0;
 		orbiter.distance = (float)(rand.NextDouble () * (maxD - minD) + minD);
-		orbiter.period = orbiter.distance;
+		orbiter.period = orbitalPeriodConstant * orbiter.distance;
 
 		return planet;
 	}
