@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameState : MonoBehaviour {
+public class GameController : MonoBehaviour {
 	public int points = 0;
 	
 	void Reset() {

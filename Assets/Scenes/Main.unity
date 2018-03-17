@@ -321,6 +321,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1506933234
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859519242028186, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8b1279fdee3a54dc9969163557236101, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1528377083
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +396,7 @@ MonoBehaviour:
   pointPrefab: {fileID: 1434437221423738, guid: 8d60ae85581a142ad97e04e95d00eda7,
     type: 2}
   numPlanets: 5
-  numPoints: 0
+  numPoints: 5
   minDistance: 1
   maxDistance: 10
   minPlanetRadius: 0.1
