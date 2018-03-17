@@ -9,6 +9,13 @@ public class Orbiter : MonoBehaviour {
 	public float distance = 1;
 	public bool ccw = false;
 	public Transform center;
+
+	void Start() {
+		// default center to parent
+		if (center == null) {
+			center = transform.parent;
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
