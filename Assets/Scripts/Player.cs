@@ -57,6 +57,7 @@ public class Player : MonoBehaviour {
     public float regenRate = 0.05f;
     public void AffectHealth(float amount)
     {
+        UpdatePlayerIcon(amount);
         if (amount > 0) {
             if (health < maxHealth)
             {
@@ -71,6 +72,22 @@ public class Player : MonoBehaviour {
             {
                 Die();
             }
+        }
+    }
+
+    void UpdatePlayerIcon(float amt)
+    {
+        Image icon = GameObject.Find("PlayerImage").GetComponent<Image>();
+        if (amt > -0.1)
+        {
+            icon.sprite = playerIconGood;
+        }
+        else if (amt > -0.2)
+        {
+            icon.sprite = playerIconWorried;
+        } else
+        {
+            icon.sprite = playerIconTerrified;
         }
     }
 
