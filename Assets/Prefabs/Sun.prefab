@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4280550144067974}
   - component: {fileID: 135586621791436230}
   - component: {fileID: 114250403659192158}
+  - component: {fileID: 114078317479574224}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -107,6 +108,17 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114078317479574224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391292233154742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a933af4fa744b6a8777d6c7f0e9ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114250403659192158
 MonoBehaviour:
   m_ObjectHideFlags: 1

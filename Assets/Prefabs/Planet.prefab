@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 33382308351013944}
   - component: {fileID: 135718235438694702}
   - component: {fileID: 114333821318478742}
+  - component: {fileID: 114643499277953436}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -113,6 +114,17 @@ MonoBehaviour:
   distance: 1
   ccw: 0
   center: {fileID: 0}
+--- !u!114 &114643499277953436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292779503479616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a933af4fa744b6a8777d6c7f0e9ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135718235438694702
 SphereCollider:
   m_ObjectHideFlags: 1
