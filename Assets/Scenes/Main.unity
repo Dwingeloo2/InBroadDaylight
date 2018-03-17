@@ -640,6 +640,24 @@ Prefab:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 497389428}
+    - target: {fileID: 114103134690238260, guid: 4bbab501bdd0aee4bbd30f37c810dad5,
+        type: 2}
+      propertyPath: playerIconGood
+      value: 
+      objectReference: {fileID: 21300000, guid: 3286819bea7e7cc4bb470448103c8371,
+        type: 3}
+    - target: {fileID: 114103134690238260, guid: 4bbab501bdd0aee4bbd30f37c810dad5,
+        type: 2}
+      propertyPath: playerIconWorried
+      value: 
+      objectReference: {fileID: 21300000, guid: ed9098d13b6675f42829cba585f10fa7,
+        type: 3}
+    - target: {fileID: 114103134690238260, guid: 4bbab501bdd0aee4bbd30f37c810dad5,
+        type: 2}
+      propertyPath: playerIconTerrified
+      value: 
+      objectReference: {fileID: 21300000, guid: 7de336d50dac2324d9e78ec2ebf414ff,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
   m_IsPrefabParent: 0
