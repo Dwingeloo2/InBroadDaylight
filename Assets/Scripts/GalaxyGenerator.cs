@@ -6,12 +6,14 @@ public class GalaxyGenerator : MonoBehaviour {
 	public GameObject sunPrefab;
 	public GameObject planetPrefab;
 	public GameObject pointPrefab;
-	public int numPlanets;
-	public int numPoints;
-	public float minDistance;
-	public float maxDistance;
-	public float minPlanetRadius;
-	public float maxPlanetRadius;
+	public int numPlanets = 1;
+	public int numPoints = 1;
+	public float minDistance = 1f;
+	public float maxDistance = 2f;
+	public float minPlanetRadius = 1f;
+	public float maxPlanetRadius = 2f;
+	public float minSpinPeriod = 1;
+	public float maxSpinPeriod = 2;
 
 	public float orbitalPeriodConstant = 1.0f;
 
@@ -31,7 +33,7 @@ public class GalaxyGenerator : MonoBehaviour {
 			float maxD = (i + 1) * (maxDistance - minDistance) / numPlanets + minDistance;
 
 			// generate planet
-			GeneratePlanet (sun.transform, minD, maxD, minPlanetRadius, maxPlanetRadius);
+			GeneratePlanet (sun.transform, minD, maxD, minPlanetRadius, maxPlanetRadius, minSpinPeriod, maxSpinPeriod);
 		}
 
 		for (int i = 0; i < numPoints; ++i) {
@@ -50,7 +52,7 @@ public class GalaxyGenerator : MonoBehaviour {
 		return point;
 	}
 
-	GameObject GeneratePlanet (Transform center, float minD, float maxD, float minR, float maxR) {
+	GameObject GeneratePlanet (Transform center, float minD, float maxD, float minR, float maxR, float minST, float maxST) {
 		GameObject planet = Instantiate (planetPrefab, center);
 
 		maxR = (maxD - minD) / 2;
@@ -61,7 +63,11 @@ public class GalaxyGenerator : MonoBehaviour {
 		}
 
 		float radius = (float)(rand.NextDouble () * (maxR - minR) + minR);
-		planet.transform.localScale *= radius * 2;
+
+		Vector3 localScale = planet.transform.localScale;
+		localScale.x *= radius * 2;
+		localScale.y *= radius * 2;
+		planet.transform.localScale = localScale;
 
 		maxD -= radius;
 		minD += radius;
@@ -71,6 +77,7 @@ public class GalaxyGenerator : MonoBehaviour {
 		orbiter.ccw = rand.Next () % 2 == 0;
 		orbiter.distance = (float)(rand.NextDouble () * (maxD - minD) + minD);
 		orbiter.period = orbitalPeriodConstant * orbiter.distance;
+		orbiter.spinPeriod = (float)((rand.Next() % 2 == 0 ? -1 : 1) * rand.NextDouble () * (maxST - minST) + minST);
 
 		return planet;
 	}

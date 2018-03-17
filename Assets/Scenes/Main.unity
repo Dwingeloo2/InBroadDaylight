@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 1528377085}
   - component: {fileID: 1528377084}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Galaxy Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +401,9 @@ MonoBehaviour:
   maxDistance: 10
   minPlanetRadius: 0.1
   maxPlanetRadius: 1
-  orbitalPeriodConstant: 1
+  minSpinPeriod: 1
+  maxSpinPeriod: 2
+  orbitalPeriodConstant: 5
   seed: 305419896
 --- !u!4 &1528377085
 Transform:
