@@ -5,7 +5,9 @@ using UnityEngine;
 public class GalaxyGenerator : MonoBehaviour {
 	public GameObject sunPrefab;
 	public GameObject planetPrefab;
+	public GameObject pointPrefab;
 	public int numPlanets;
+	public int numPoints;
 	public float minDistance;
 	public float maxDistance;
 	public float minPlanetRadius;
@@ -23,12 +25,29 @@ public class GalaxyGenerator : MonoBehaviour {
 	void Start() {
 		GameObject sun = Instantiate (sunPrefab, this.transform);
 
+		// generate planets
 		for (int i = 0; i < numPlanets; ++i) {
 			float minD = (i + 0) * (maxDistance - minDistance) / numPlanets + minDistance;
 			float maxD = (i + 1) * (maxDistance - minDistance) / numPlanets + minDistance;
 
+			// generate planet
 			GeneratePlanet (sun.transform, minD, maxD, minPlanetRadius, maxPlanetRadius);
 		}
+
+		for (int i = 0; i < numPoints; ++i) {
+			// generate point
+			GeneratePoint (sun.transform, minDistance, maxDistance);
+		}
+	}
+
+	GameObject GeneratePoint (Transform center, float minD, float maxD) {
+		Vector3 localPosition = (float)(minD + rand.NextDouble() * (maxD - minD)) 
+			* new Vector3 ((float)rand.NextDouble () - 0.5f, (float)rand.NextDouble () - 0.5f, 0.0f).normalized;
+
+		GameObject point = Instantiate (pointPrefab, this.gameObject.transform);
+		point.transform.localPosition = localPosition;
+
+		return point;
 	}
 
 	GameObject GeneratePlanet (Transform center, float minD, float maxD, float minR, float maxR) {

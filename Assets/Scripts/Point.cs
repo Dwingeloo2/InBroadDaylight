@@ -10,7 +10,7 @@ public class Point : MonoBehaviour {
 	void Awake () {
 		gameState = GameObject.FindWithTag ("GameController").GetComponent<GameState>();
 	}
-	
+
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
 			gameState.points += 1;
