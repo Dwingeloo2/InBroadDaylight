@@ -63,7 +63,11 @@ public class GalaxyGenerator : MonoBehaviour {
 		}
 
 		float radius = (float)(rand.NextDouble () * (maxR - minR) + minR);
-		planet.transform.localScale *= radius * 2;
+
+		Vector3 localScale = planet.transform.localScale;
+		localScale.x *= radius * 2;
+		localScale.y *= radius * 2;
+		planet.transform.localScale = localScale;
 
 		maxD -= radius;
 		minD += radius;
