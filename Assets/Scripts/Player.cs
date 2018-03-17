@@ -77,4 +77,9 @@ public class Player : MonoBehaviour {
         health = -1;
         Debug.Log("Ye dead");
     }
+
+
+    public Sprite playerIconGood;
+    public Sprite playerIconWorried;
+    public Sprite playerIconTerrified;
 }
