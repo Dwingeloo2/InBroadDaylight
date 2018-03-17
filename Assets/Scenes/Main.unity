@@ -353,12 +353,12 @@ MonoBehaviour:
     type: 2}
   pointPrefab: {fileID: 1434437221423738, guid: 8d60ae85581a142ad97e04e95d00eda7,
     type: 2}
-  numPlanets: 3
+  numPlanets: 5
   numPoints: 0
   minDistance: 1
-  maxDistance: 2
-  minPlanetRadius: 0
-  maxPlanetRadius: 0
+  maxDistance: 10
+  minPlanetRadius: 0.1
+  maxPlanetRadius: 1
   orbitalPeriodConstant: 1
   seed: 305419896
 --- !u!4 &1528377085
