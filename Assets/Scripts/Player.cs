@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour {
     public float torque = 100.0f;
 	public float maxAngularVelocity = 5.0f;
     private Rigidbody rb;
+	public Image healthBar;
     
     // Use this for initialization
     void Start () {
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour {
 		CapVelocity ();
 
         AffectHealth(regenRate);
+        UpdateHealthBar();
 	}
 
 	void CapVelocity() {
@@ -71,9 +74,15 @@ public class Player : MonoBehaviour {
         }
     }
 
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = health / maxHealth;
+    }
+
 
     public void Die()
     {
+        health = -1;
         Debug.Log("Ye dead");
     }
 }
