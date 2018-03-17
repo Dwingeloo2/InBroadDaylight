@@ -34,6 +34,6 @@ public class CameraController : MonoBehaviour {
         float upperBoundY = (backgroundSize.y / 2) - (camheight / 2);
         float newX = Mathf.Max(lowerBoundX, Mathf.Min(upperBoundX, playerx));
         float newY = Mathf.Max(lowerBoundY, Mathf.Min(upperBoundY, playery));
-        transform.position = new Vector3(newX, newY, -5);
+        transform.position = new Vector3(newX, newY, -100);
     }
 }
