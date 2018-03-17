@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour {
     public float maxVelocity = 5.0f; // This doesn't do anything yet
     public float rotationSpeed = 200.0F;
     private Rigidbody rb;
+	public Image healthBar;
     
     // Use this for initialization
     void Start () {
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour {
                 Die();
             }
         }
+		healthBar.fillAmount = health / maxHealth;
     }
 
 
