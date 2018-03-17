@@ -4,40 +4,48 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public float thrust = 90.0F;
-    public float acceleration = 1.0f;
-    public float maxVelocity = 5.0f; // This doesn't do anything yet
-    public float rotationSpeed = 200.0F;
+    public float thrust = 500.0f;
+    public float maxVelocity = 5.0f;
+    public float torque = 100.0f;
+	public float maxAngularVelocity = 5.0f;
     private Rigidbody rb;
     
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+		rb.maxAngularVelocity = maxAngularVelocity;
     }
 	
 	// Update is called once per frame
 	void Update () {
         Propel();
         Rotate();
+
+		CapVelocity ();
+
         AffectHealth(regenRate);
+	}
+
+	void CapVelocity() {
+		rb.velocity = Vector3.ClampMagnitude (rb.velocity, maxVelocity);
 	}
     
     
     void Propel()
     {
-        float propel = Input.GetAxis("Vertical") * thrust;
+        float propel = Input.GetAxis("Vertical") * thrust * Time.deltaTime;
         if (propel >= 0)
         {
-            propel *= Time.deltaTime * acceleration;
             rb.AddRelativeForce(Vector3.up * propel);
         }
     }
 
     void Rotate()
     {
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-        rotation *= Time.deltaTime;
-        transform.Rotate(0, 0, rotation);
+        float rotation = Input.GetAxis("Horizontal") * torque * Time.deltaTime;
+		rb.AddRelativeTorque (Vector3.forward * rotation);
+        //rotation *= Time.deltaTime;
+        //transform.Rotate(0, 0, rotation);
     }
 
 
