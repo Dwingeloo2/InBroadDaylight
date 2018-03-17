@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SunBehaviour : MonoBehaviour {
 
-	public GameObject Player;
+    public float damageRate = 0f;
+	public GameObject player;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,10 +14,11 @@ public class SunBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		RaycastHit hit;
-		if(Physics.Raycast(transform.position, (Player.transform.position - transform.position), out hit)){
-			if (hit.transform == Player.transform) {
-				print ("Player Hit");
-			}
+		if(Physics.Raycast(transform.position, (player.transform.position - transform.position), out hit)){
+			if (hit.transform == player.transform) {
+                player.GetComponent<Player>().AffectHealth(damageRate/hit.distance);
+
+            }
 		}
 	}
 }
