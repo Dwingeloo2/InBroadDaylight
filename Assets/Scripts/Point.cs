@@ -4,11 +4,11 @@ using UnityEngine;
 
 [RequireComponent (typeof(Collider))]
 public class Point : MonoBehaviour {
-	private GameState gameState;
+	private GameController gameState;
 
 	// Use this for initialization
 	void Awake () {
-		gameState = GameObject.FindWithTag ("GameController").GetComponent<GameState>();
+		gameState = GameObject.FindWithTag ("GameController").GetComponent<GameController>();
 	}
 
 	void OnTriggerEnter(Collider other) {
