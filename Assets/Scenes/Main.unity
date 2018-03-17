@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.007352948, g: 0.00075692096, b: 0.00075692096, a: 0.392}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -608,6 +608,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4300919952731596, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300919952731596, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300919952731596, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300919952731596, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -627,14 +639,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4300919952731596, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300919952731596, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.83
-      objectReference: {fileID: 0}
     - target: {fileID: 114103134690238260, guid: 4bbab501bdd0aee4bbd30f37c810dad5,
         type: 2}
       propertyPath: healthBar
@@ -642,22 +646,9 @@ Prefab:
       objectReference: {fileID: 497389428}
     - target: {fileID: 114103134690238260, guid: 4bbab501bdd0aee4bbd30f37c810dad5,
         type: 2}
-      propertyPath: playerIconGood
-      value: 
-      objectReference: {fileID: 21300000, guid: 3286819bea7e7cc4bb470448103c8371,
-        type: 3}
-    - target: {fileID: 114103134690238260, guid: 4bbab501bdd0aee4bbd30f37c810dad5,
-        type: 2}
-      propertyPath: playerIconWorried
-      value: 
-      objectReference: {fileID: 21300000, guid: ed9098d13b6675f42829cba585f10fa7,
-        type: 3}
-    - target: {fileID: 114103134690238260, guid: 4bbab501bdd0aee4bbd30f37c810dad5,
-        type: 2}
-      propertyPath: playerIconTerrified
-      value: 
-      objectReference: {fileID: 21300000, guid: 7de336d50dac2324d9e78ec2ebf414ff,
-        type: 3}
+      propertyPath: regenRate
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bbab501bdd0aee4bbd30f37c810dad5, type: 2}
   m_IsPrefabParent: 0
@@ -855,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.684}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.684}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
