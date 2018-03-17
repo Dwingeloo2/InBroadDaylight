@@ -18,7 +18,7 @@ public class SunBehaviour : MonoBehaviour {
         {
             if (hit.transform == player.transform)
             {
-                player.GetComponent<Player>().AffectHealth(damageRate/hit.distance);
+                player.GetComponent<Player>().AffectHealth(damageRate/hit.distance  );
 
             }
         }
