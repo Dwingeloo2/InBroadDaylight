@@ -83,6 +83,7 @@ public class Player : MonoBehaviour {
     public Sprite playerIconGood;
     public Sprite playerIconWorried;
     public Sprite playerIconTerrified;
+    public Sprite playerIconDead;
     void UpdatePlayerIcon(float amt)
     {
         if (Time.time < endHappyTime)
@@ -125,6 +126,8 @@ public class Player : MonoBehaviour {
         GameController gc = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         gc.PlayExplodeSound();
         GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().End (gameObject);
+        Image icon = GameObject.Find("PlayerImage").GetComponent<Image>();
+        icon.sprite = playerIconDead;
     }
 
     void WarnLowHealth()
