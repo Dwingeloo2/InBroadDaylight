@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent (typeof(Collider))]
 public class Point : MonoBehaviour {
 	private GameController gameState;
+
+	public GameObject parentToDestroy;
+
 	public Vector3 rotationAxis = Vector3.forward;
 	public float rotationPeriod = 2.0f;
 
@@ -22,7 +25,11 @@ public class Point : MonoBehaviour {
 		if (other.tag == "Player") {
             other.GetComponent<Player>().SetHappy(1f);
 			gameState.points += 1;
-			Destroy (this.gameObject);
+			if (parentToDestroy != null) {
+				Destroy (parentToDestroy);
+			} else {
+				Destroy (this.gameObject);
+			}
 		}
 	}
 }
