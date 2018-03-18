@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 	public static int points = 0; // static to survive scene transfers
-	public static int level = 1; // static to survive scene transfers
+	public static int level = 0; // static to survive scene transfers
 	public AudioClip pickupSound;
 	public AudioClip explodeSound;
 	public GalaxyGenerator generator;
@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour {
 
 	void Awake() {
 		generator.seed = level;
-		generator.orbitalPeriodConstant = 10 * Mathf.Pow (0.8, level);
-        levelText.GetComponent<Text>().text = "Level  " + level.ToString();
+		generator.orbitalPeriodConstant = 10 * Mathf.Pow (0.8, level + 1);
+        levelText.GetComponent<Text>().text = "Level  " + (level+1).ToString();
 	}
 
 	static void ResetPoints() {
