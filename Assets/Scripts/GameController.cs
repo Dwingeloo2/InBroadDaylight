@@ -26,4 +26,14 @@ public class GameController : MonoBehaviour {
         source.clip = explodeSound;
         source.Play();
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void RestartGame()
+    {
+        GameObject.Find("Death Screen").SetActive(false);
+    }
 }
