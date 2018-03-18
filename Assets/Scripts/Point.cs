@@ -11,8 +11,10 @@ public class Point : MonoBehaviour {
 		gameState = GameObject.FindWithTag ("GameController").GetComponent<GameController>();
 	}
 
-	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Player") {
+	void OnTriggerEnter(Collider otherCollider) {
+        GameObject other = otherCollider.gameObject;
+		if (other.tag == "Player") {
+            other.GetComponent<Player>().SetHappy(1f);
 			gameState.points += 1;
 			Destroy (this.gameObject);
 		}
