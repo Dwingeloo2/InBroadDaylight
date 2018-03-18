@@ -75,8 +75,17 @@ public class Player : MonoBehaviour {
         }
     }
 
+
+
+    public Sprite playerIconGood;
+    public Sprite playerIconWorried;
+    public Sprite playerIconTerrified;
     void UpdatePlayerIcon(float amt)
     {
+        if (Time.time < endHappyTime)
+        {
+            return;
+        }
         Image icon = GameObject.Find("PlayerImage").GetComponent<Image>();
         if (amt > -0.1)
         {
@@ -89,6 +98,15 @@ public class Player : MonoBehaviour {
         {
             icon.sprite = playerIconTerrified;
         }
+    }
+    
+    private float endHappyTime = 0;
+    public Sprite playerIconHappy;
+    public void SetHappy(float length)
+    {
+        Image icon = GameObject.Find("PlayerImage").GetComponent<Image>();
+        icon.sprite = playerIconHappy;
+        endHappyTime = Time.time + length;
     }
 
     void UpdateHealthBar()
@@ -103,8 +121,4 @@ public class Player : MonoBehaviour {
         Debug.Log("Ye dead");
     }
 
-
-    public Sprite playerIconGood;
-    public Sprite playerIconWorried;
-    public Sprite playerIconTerrified;
 }
