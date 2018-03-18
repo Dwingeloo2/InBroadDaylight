@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
 
 	void Awake() {
 		generator.seed = level;
+		generator.orbitalPeriodConstant = 10 * Mathf.Pow (0.8, level);
         levelText.GetComponent<Text>().text = "Level  " + level.ToString();
 	}
 
