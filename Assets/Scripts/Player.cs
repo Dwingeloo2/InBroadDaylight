@@ -122,7 +122,9 @@ public class Player : MonoBehaviour {
     {
         health = -1;
         Debug.Log("Ye dead");
-		GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().End (gameObject);
+        GameController gc = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        gc.PlayExplodeSound();
+        GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().End (gameObject);
     }
 
     void WarnLowHealth()

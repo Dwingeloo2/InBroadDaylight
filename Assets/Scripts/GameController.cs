@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 	public int points = 0;
     public AudioClip pickupSound;
+    public AudioClip explodeSound;
 	
 	void Reset() {
 		points = 0;
@@ -17,5 +18,12 @@ public class GameController : MonoBehaviour {
         source.clip = pickupSound;
         source.Play();
 
+    }
+
+    public void PlayExplodeSound()
+    {
+        AudioSource source = gameObject.GetComponent<AudioSource>();
+        source.clip = explodeSound;
+        source.Play();
     }
 }
