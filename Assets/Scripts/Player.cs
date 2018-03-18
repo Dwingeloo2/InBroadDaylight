@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public float rotationSpeed = 200.0F;
     private Rigidbody rb;
 	public Image healthBar;
+	public EndOfLevel levelEnder;
     
     // Use this for initialization
     void Start () {
@@ -70,5 +71,6 @@ public class Player : MonoBehaviour {
     public void Die()
     {
         Debug.Log("Ye dead");
+		levelEnder.End (gameObject);
     }
 }
