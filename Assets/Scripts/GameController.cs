@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 	public static int points = 0; // static to survive scene transfers
-	public static int level = 0; // static to survive scene transfers
+	public static int level = 1; // static to survive scene transfers
 	public AudioClip pickupSound;
 	public AudioClip explodeSound;
 	public GalaxyGenerator generator;
+    public GameObject levelText;
 
 	void Awake() {
 		generator.seed = level;
+        levelText.GetComponent<Text>().text = "Level  " + level.ToString();
 	}
 
 	static void ResetPoints() {
