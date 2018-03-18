@@ -59,7 +59,7 @@ public class GalaxyGenerator : MonoBehaviour {
 		GameObject point = Instantiate (pointPrefab, this.gameObject.transform);
 		point.transform.localPosition = localPosition;
 
-		Point pointScript = point.GetComponent<Point> ();
+		Point pointScript = point.GetComponentInChildren<Point> ();
 		pointScript.rotationAxis = new Vector3 ((float)(rand.NextDouble ()), (float)(rand.NextDouble ()), (float)(rand.NextDouble ())).normalized;
 
 		return point;
