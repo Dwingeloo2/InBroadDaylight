@@ -105,6 +105,7 @@ public class GalaxyGenerator : MonoBehaviour {
 		orbiter.distance = (float)(rand.NextDouble () * (maxD - minD) + minD);
 		orbiter.period = orbitalPeriodConstant * orbiter.distance;
 		orbiter.spinPeriod = (float)((rand.Next() % 2 == 0 ? -1 : 1) * rand.NextDouble () * (maxST - minST) + minST);
+		orbiter.offset = (float)rand.NextDouble ();
 
 		return planet;
 	}
