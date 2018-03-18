@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour {
 		generator.orbitalPeriodConstant = 10 * Mathf.Pow (0.8f, (float)(level + 1));
 		generator.numPoints = 5 + level;
 		pointsToWin = points + generator.numPoints;
-        levelText.GetComponent<Text>().text = "Level  " + (level+1).ToString();
+        levelText.GetComponent<Text>().text = "Level " + (level+1).ToString();
 	}
 
 	void ResetPoints() {
