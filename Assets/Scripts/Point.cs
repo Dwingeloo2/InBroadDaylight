@@ -5,10 +5,16 @@ using UnityEngine;
 [RequireComponent (typeof(Collider))]
 public class Point : MonoBehaviour {
 	private GameController gameState;
+	public Vector3 rotationAxis = Vector3.forward;
+	public float rotationPeriod = 1;
 
 	// Use this for initialization
 	void Awake () {
 		gameState = GameObject.FindWithTag ("GameController").GetComponent<GameController>();
+	}
+
+	void Update() {
+		this.transform.Rotate (rotationAxis, Time.deltaTime / rotationPeriod * 360);
 	}
 
 	void OnTriggerEnter(Collider otherCollider) {
