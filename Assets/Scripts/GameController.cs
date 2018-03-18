@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
 	public static int points = 0; // static to survive scene transfers
 	public static int level = 0; // static to survive scene transfers
-    public AudioClip pickupSound;
+	public AudioClip pickupSound;
+	public AudioClip explodeSound;
 	public GalaxyGenerator generator;
 
 	void Awake() {
@@ -38,5 +39,17 @@ public class GameController : MonoBehaviour {
         source.clip = pickupSound;
         source.Play();
 
+    }
+
+    public void PlayExplodeSound()
+    {
+        AudioSource source = gameObject.GetComponent<AudioSource>();
+        source.clip = explodeSound;
+        source.Play();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
