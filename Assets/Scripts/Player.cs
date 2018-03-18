@@ -11,7 +11,8 @@ public class Player : MonoBehaviour {
 	public float maxAngularVelocity = 5.0f;
     private Rigidbody rb;
 	public Image healthBar;
-    
+    public GameObject propellant;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -40,9 +41,13 @@ public class Player : MonoBehaviour {
     void Propel()
     {
         float propel = Input.GetAxis("Vertical") * thrust * Time.deltaTime;
-        if (propel >= 0)
+        if (propel > 0)
         {
             rb.AddRelativeForce(Vector3.up * propel);
+            propellant.SetActive(true);
+        } else
+        {
+            propellant.SetActive(false);
         }
     }
 

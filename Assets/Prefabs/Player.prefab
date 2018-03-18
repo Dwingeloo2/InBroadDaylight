@@ -401,6 +401,7 @@ MonoBehaviour:
   torque: 50
   maxAngularVelocity: 5
   healthBar: {fileID: 0}
+  propellant: {fileID: 1479953309259478}
   maxHealth: 100
   health: 100
   regenRate: 0.075
