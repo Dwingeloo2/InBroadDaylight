@@ -6,7 +6,7 @@ using UnityEngine;
 public class Point : MonoBehaviour {
 	private GameController gameState;
 	public Vector3 rotationAxis = Vector3.forward;
-	public float rotationPeriod = 1;
+	public float rotationPeriod = 2.0f;
 
 	// Use this for initialization
 	void Awake () {
