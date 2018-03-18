@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody>();
 		rb.maxAngularVelocity = maxAngularVelocity;
+        Light light = gameObject.GetComponentInChildren<Light>();
+        light.color = new Color(255, 255, 255);
     }
 	
 	// Update is called once per frame
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour {
 
         AffectHealth(regenRate);
         UpdateHealthBar();
-        PlayWarningAlarm();
+        WarnLowHealth();
 	}
 
 	void CapVelocity() {
@@ -123,21 +125,25 @@ public class Player : MonoBehaviour {
 		GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().End (gameObject);
     }
 
-    void PlayWarningAlarm()
+    void WarnLowHealth()
     {
         AudioSource alarm = gameObject.GetComponent<AudioSource>();
+        Light light = gameObject.GetComponentInChildren<Light>();
         if (health < 33)
         {
             if (!alarm.isPlaying)
             {
                 alarm.Play();
             }
+            float hue = Mathf.Abs(Mathf.Sin(Time.time)*255f);
+            light.color = new Color(255, hue, hue);
         }
         else
         {
             if (alarm.isPlaying)
             {
                 alarm.Stop();
+                light.color = new Color(255, 255, 255);
             }
         }
     }
