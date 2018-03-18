@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,15 +37,24 @@ public class GalaxyGenerator : MonoBehaviour {
 			GeneratePlanet (sun.transform, minD, maxD, minPlanetRadius, maxPlanetRadius, minSpinPeriod, maxSpinPeriod);
 		}
 
+		// randomly shuffle pie sections of the galaxy
+		IEnumerable<int> pieIsEnumerable = Enumerable.Range (0, numPoints);
+		int[] pieIs = pieIsEnumerable.OrderBy(x => rand.Next()).ToArray();
 		for (int i = 0; i < numPoints; ++i) {
+			int pieI = pieIs [i];
+			float minD = (i + 0) * (maxDistance - minDistance) / numPoints + minDistance;
+			float maxD = (i + 1) * (maxDistance - minDistance) / numPoints + minDistance;
+			float minDeg = (pieI + 0) * (360 - 0) / numPoints + 0;
+			float maxDeg = (pieI + 1) * (360 - 0) / numPoints + 0;
+
 			// generate point
-			GeneratePoint (sun.transform, minDistance, maxDistance);
+			GeneratePoint (sun.transform, minD, maxD, minDeg, maxDeg);
 		}
 	}
 
-	GameObject GeneratePoint (Transform center, float minD, float maxD) {
-		Vector3 localPosition = (float)(minD + rand.NextDouble() * (maxD - minD)) 
-			* new Vector3 ((float)rand.NextDouble () - 0.5f, (float)rand.NextDouble () - 0.5f, 0.0f).normalized;
+	GameObject GeneratePoint (Transform center, float minD, float maxD, float minDeg, float maxDeg) {
+		float angle = (float)(rand.NextDouble () * (maxDeg - minDeg) + minDeg);
+		Vector3 localPosition = (float)(minD + rand.NextDouble () * (maxD - minD)) * (Quaternion.Euler (0, 0, angle) * Vector3.up);
 
 		GameObject point = Instantiate (pointPrefab, this.gameObject.transform);
 		point.transform.localPosition = localPosition;
