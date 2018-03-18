@@ -7,6 +7,8 @@ public class GalaxyGenerator : MonoBehaviour {
 	public GameObject sunPrefab;
 	public GameObject planetPrefab;
 	public GameObject pointPrefab;
+	private List<GameObject> spawns = new List<GameObject>();
+
 	public int numPlanets = 1;
 	public int numPoints = 1;
 	public float minDistance = 1f;
@@ -26,7 +28,17 @@ public class GalaxyGenerator : MonoBehaviour {
 	}
 
 	void Start() {
+		Generate ();
+	}
+
+	public void Generate() {
+		// destroy old objects
+		foreach (GameObject spawn in spawns) {
+			Destroy (spawn);
+		}
+
 		GameObject sun = Instantiate (sunPrefab, this.transform);
+		spawns.Add (sun);
 
 		// generate planets
 		for (int i = 0; i < numPlanets; ++i) {
@@ -34,7 +46,8 @@ public class GalaxyGenerator : MonoBehaviour {
 			float maxD = (i + 1) * (maxDistance - minDistance) / numPlanets + minDistance;
 
 			// generate planet
-			GeneratePlanet (sun.transform, minD, maxD, minPlanetRadius, maxPlanetRadius, minSpinPeriod, maxSpinPeriod);
+			GameObject planet = GeneratePlanet (sun.transform, minD, maxD, minPlanetRadius, maxPlanetRadius, minSpinPeriod, maxSpinPeriod);
+			spawns.Add (planet);
 		}
 
 		// randomly shuffle pie sections of the galaxy
@@ -48,7 +61,8 @@ public class GalaxyGenerator : MonoBehaviour {
 			float maxDeg = (pieI + 1) * (360 - 0) / numPoints + 0;
 
 			// generate point
-			GeneratePoint (sun.transform, minD, maxD, minDeg, maxDeg);
+			GameObject point = GeneratePoint (sun.transform, minD, maxD, minDeg, maxDeg);
+			spawns.Add (point);
 		}
 	}
 
