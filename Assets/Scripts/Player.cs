@@ -11,7 +11,6 @@ public class Player : MonoBehaviour {
 	public float maxAngularVelocity = 5.0f;
     private Rigidbody rb;
 	public Image healthBar;
-	public EndOfLevel levelEnder;
     
     // Use this for initialization
     void Start () {
@@ -120,7 +119,7 @@ public class Player : MonoBehaviour {
     {
         health = -1;
         Debug.Log("Ye dead");
-		levelEnder.End (gameObject);
+		GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().End (gameObject);
     }
 
 }

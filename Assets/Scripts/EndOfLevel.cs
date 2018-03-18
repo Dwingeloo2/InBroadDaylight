@@ -18,7 +18,7 @@ public class EndOfLevel : MonoBehaviour {
 	public void End(GameObject player){
 		print ("End level");
 		GameObject explosion = Instantiate (explosionPrefab, player.transform.position, player.transform.rotation);
-		Destroy (player);
+		player.SetActive(false);
 		// Other end of game stuff
 	}
 }

@@ -1,11 +1,16 @@
 fileFormatVersion: 2
 guid: 030adefb373841d438cb702d476fd647
-timeCreated: 1521254393
-licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthBar: {instanceID: 0}
+  - playerIconGood: {fileID: 21300000, guid: 3286819bea7e7cc4bb470448103c8371, type: 3}
+  - playerIconWorried: {fileID: 21300000, guid: ed9098d13b6675f42829cba585f10fa7,
+      type: 3}
+  - playerIconTerrified: {fileID: 21300000, guid: 7de336d50dac2324d9e78ec2ebf414ff,
+      type: 3}
+  - playerIconHappy: {fileID: 21300000, guid: 334108a73b7afb2479b8935ab8d82090, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
