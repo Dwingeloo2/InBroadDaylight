@@ -4,9 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent (typeof(EndOfLevel))]
 public class GameController : MonoBehaviour {
-	public static int points = 0; // static to survive scene transfers
+	private static int _points = 0;// static to survive scene transfers
+	public int points { 
+		get { return _points; } 
+		set { _points = value; if (_points >= pointsToWin) this.GetComponent<EndOfLevel> ().GoodEnd(); }
+	}
 	public static int level = 0; // static to survive scene transfers
+	private static int pointsToWin;
 	public AudioClip pickupSound;
 	public AudioClip explodeSound;
 	public GalaxyGenerator generator;
@@ -15,14 +21,15 @@ public class GameController : MonoBehaviour {
 	void Awake() {
 		generator.seed = level;
 		generator.orbitalPeriodConstant = 10 * Mathf.Pow (0.8f, (float)(level + 1));
+		pointsToWin = points + generator.numPoints;
         levelText.GetComponent<Text>().text = "Level  " + (level+1).ToString();
 	}
 
-	static void ResetPoints() {
+	void ResetPoints() {
 		points = 0;
 	}
 
-	static void ResetLevel() {
+	void ResetLevel() {
 		level = 0;
 	}
 

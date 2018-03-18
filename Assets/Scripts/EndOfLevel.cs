@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class EndOfLevel : MonoBehaviour {
 
-	public UnityEvent onEndLevel;
+	public UnityEvent onBadEndLevel;
+	public UnityEvent onGoodEndLevel;
 
 	public GameObject explosionPrefab;
 	// Use this for initialization
@@ -18,11 +19,16 @@ public class EndOfLevel : MonoBehaviour {
 		
 	}
 
-	public void End(GameObject player){
+	public void BadEnd(GameObject player) {
 		print ("End level");
 		GameObject explosion = Instantiate (explosionPrefab, player.transform.position, player.transform.rotation);
 		player.SetActive(false);
 		// Other end of game stuff
-		onEndLevel.Invoke ();
+		onBadEndLevel.Invoke ();
+	}
+
+	public void GoodEnd() {
+		Debug.Log ("Good end level");
+		onGoodEndLevel.Invoke ();
 	}
 }
