@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 
         AffectHealth(regenRate);
         UpdateHealthBar();
+        PlayWarningAlarm();
 	}
 
 	void CapVelocity() {
@@ -120,6 +121,25 @@ public class Player : MonoBehaviour {
         health = -1;
         Debug.Log("Ye dead");
 		GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().End (gameObject);
+    }
+
+    void PlayWarningAlarm()
+    {
+        AudioSource alarm = gameObject.GetComponent<AudioSource>();
+        if (health < 33)
+        {
+            if (!alarm.isPlaying)
+            {
+                alarm.Play();
+            }
+        }
+        else
+        {
+            if (alarm.isPlaying)
+            {
+                alarm.Stop();
+            }
+        }
     }
 
 }
