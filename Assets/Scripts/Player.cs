@@ -125,7 +125,7 @@ public class Player : MonoBehaviour {
         Debug.Log("Ye dead");
         GameController gc = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         gc.PlayExplodeSound();
-        GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().BadEnd (gameObject);
+        GameObject.FindWithTag("GameController").GetComponent<EndOfLevel>().BadEnd ();
         Image icon = GameObject.Find("PlayerImage").GetComponent<Image>();
         icon.sprite = playerIconDead;
     }

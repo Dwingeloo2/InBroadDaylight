@@ -9,6 +9,7 @@ public class EndOfLevel : MonoBehaviour {
 	public UnityEvent onGoodEndLevel;
 
 	public GameObject explosionPrefab;
+	public GameObject player;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,7 +20,7 @@ public class EndOfLevel : MonoBehaviour {
 		
 	}
 
-	public void BadEnd(GameObject player) {
+	public void BadEnd() {
 		print ("End level");
 		GameObject explosion = Instantiate (explosionPrefab, player.transform.position, player.transform.rotation);
 		player.SetActive(false);
@@ -29,6 +30,7 @@ public class EndOfLevel : MonoBehaviour {
 
 	public void GoodEnd() {
 		Debug.Log ("Good end level");
+		player.SetActive (false);
 		onGoodEndLevel.Invoke ();
 	}
 }
