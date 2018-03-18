@@ -25,7 +25,7 @@ public class Point : MonoBehaviour {
 		if (other.tag == "Player") {
             other.GetComponent<Player>().SetHappy(1f);
             gameState.PlayPickupSound();
-            GameController.points += 1;
+            gameState.points += 1;
 			if (parentToDestroy != null) {
 				Destroy (parentToDestroy);
 			} else {
